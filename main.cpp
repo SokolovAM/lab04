@@ -41,6 +41,7 @@ void print_in_hex(const void* data, size_t size)
     for(i=0; i<size ;i++)
     {
         print_byte(p[i]);
+        cout<<" ";
     }
 };
 
@@ -55,7 +56,8 @@ struct student{
 
 int main() {
     //uint8_t u8;
-    print_byte(120);
+    //print_byte(120);
+
 
     student s[3];
 
@@ -76,17 +78,13 @@ int main() {
     strcpy(s[2].name,"Anna");
     s[2].year = 2016;
     s[2].ball = 4.5;
-    s[2].sex = 1;
+    s[2].sex = 0;
     s[2].courses = 1;
     s[2].batya = &s[1];
 
     for(size_t i=0; i<3; i++) {
-        cout<< '\n' << s[i].name << '\n';
-        cout << s[i].year << '\n';
-        cout << s[i].ball << '\n';
-        cout << s[i].sex << '\n';
-        cout << s[i].courses << '\n';
-        cout << s[i].batya << '\n';
+        print_in_hex(&s[i],sizeof (s[i]));
+                cout<<'\n';
     }
     return 0;
 }
